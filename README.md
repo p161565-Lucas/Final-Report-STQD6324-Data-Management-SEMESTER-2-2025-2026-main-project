@@ -104,6 +104,19 @@ This architecture enables direct communication between Hive and R without manual
 
 # Dataset
 
+The ride-booking dataset used in this project is based on publicly available data from the City of Chicago Data Portal.
+
+Dataset Source
+
+The dataset is sourced from the following open data repository:
+
+Chicago Taxi Trips Dataset
+https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew
+
+This dataset contains detailed records of taxi trips in Chicago, including trip duration, trip distance, fare amount, payment type, pickup and drop-off locations, and timestamps. It is widely used for transportation analytics, demand forecasting, and urban mobility research.
+
+The dataset is used under the City of Chicago open data policy and is intended for academic and research purposes.
+
 The ride-booking dataset contains information such as:
 
 * Booking ID
