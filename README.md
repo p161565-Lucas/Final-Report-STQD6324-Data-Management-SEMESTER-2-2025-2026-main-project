@@ -371,7 +371,7 @@ Users can input custom values and obtain cancellation risk estimates.
 
 ## Data Explorer
 
-Interactive searchable table using DT.
+![Task 9](screenshots/explorer.png)
 
 ---
 
@@ -434,43 +434,43 @@ runApp()
 
 ## Dashboard Homepage
 
-![Task 9](screenshots/homepage.png)
+![Task 10](screenshots/homepage.png)
 
 ---
 
 ## HDFS Upload
 
-![Task 10](screenshots/hdfs.png)
+![Task 11](screenshots/hdfs.png)
 
 ---
 
 ## Hive Table Creation
 
-![Task 11](screenshots/hive_table_create.png)
+![Task 12](screenshots/hive_table_create.png)
 
 ---
 
 ## Hive Query Result
 
-![Task 12](screenshots/hive_result.png)
+![Task 13](screenshots/hive_result.png)
 
 ---
 
 ## WinSCP Export
 
-![Task 13](screenshots/winSCP.png)
+![Task 14](screenshots/winSCP.png)
 
 ---
 
 ## ODBC Connection
 
-![Task 14](screenshots/ODBC.png)
+![Task 15](screenshots/ODBC.png)
 
 ---
 
 ## Cancellation Model
 
-![Task 15](screenshots/cancellation_model.png)
+![Task 16](screenshots/cancellation_model.png)
 
 ---
 
