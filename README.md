@@ -30,23 +30,7 @@ The project also demonstrates three different approaches for processing and acce
 
 # System Architecture
 
-## Approach 1: Direct R Processing
-
-Raw CSV Dataset
-
-↓
-
-Data Cleaning in R
-
-↓
-
-R Shiny Dashboard
-
-This approach processes the dataset entirely within RStudio.
-
----
-
-## Approach 2: Hive + WinSCP + R Dashboard
+## Approach 1: Hive + WinSCP + R Dashboard
 
 Raw CSV Dataset
 
@@ -74,7 +58,7 @@ This approach uses Hive as a data warehouse and exports the processed dataset fo
 
 ---
 
-## Approach 3: Hive + ODBC + R Dashboard (Final Architecture)
+## Approach 2: Hive + ODBC + R Dashboard (Final Architecture)
 
 Raw CSV Dataset
 
@@ -252,7 +236,7 @@ df$Is_Cancelled <- ifelse(
 
 ---
 
-## Step 5: Export Hive Data (Approach 2)
+## Step 5: Export Hive Data (Approach 1)
 
 Hive output was exported through WinSCP:
 
@@ -271,7 +255,7 @@ df <- read.csv(
 
 ---
 
-## Step 6: Connect Hive Directly Using ODBC (Approach 3)
+## Step 6: Connect Hive Directly Using ODBC (Approach 2)
 
 Install package:
 
@@ -515,11 +499,10 @@ Ride-Booking-Analytics/
 
 This project demonstrates a complete Data Management and Analytics pipeline using Hadoop, Hive, and R Shiny.
 
-Three different architectures were implemented:
+Two different architectures were implemented:
 
-1. Direct R Processing
-2. Hive + WinSCP + R
-3. Hive + ODBC + R
+1. Hive + WinSCP + R
+2. Hive + ODBC + R
 
 The final solution successfully integrates data warehousing, data processing, dashboard visualization, and predictive analytics into a single platform.
 
