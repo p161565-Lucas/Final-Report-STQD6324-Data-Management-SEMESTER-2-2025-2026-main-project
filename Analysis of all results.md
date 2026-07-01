@@ -27,7 +27,7 @@ This finding suggests that overall business revenue depends on both pricing stra
 
 ## 4. Booking Status Analysis
 
-![Insert Figure 4](screenshots/R_bookings_by_pick_up_location.png)
+![Insert Figure 4](screenshots/R_booings_by_pick_up_location.png)
 
 The Booking Status analysis categorises bookings into successful rides, customer cancellations, driver cancellations, and driver-not-found cases. Successful bookings represent the largest proportion of all transactions, demonstrating that the platform is capable of completing most customer requests successfully.
 
