@@ -555,7 +555,7 @@ Users can input custom values and obtain cancellation risk estimates.
 ---
 
 ## Vehicle Type Distribution
-![Task 10](R_vehicle_by_distribution.png.png)
+![Task 10](R_vehicle_by_distribution.png)
 
 ---
 
