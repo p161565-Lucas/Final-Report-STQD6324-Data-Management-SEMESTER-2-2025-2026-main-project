@@ -59,7 +59,7 @@ The cancellation reason analysis identifies the major factors contributing to un
 
 Understanding these cancellation patterns enables management to implement targeted improvement strategies. For example, improving driver assignment algorithms, providing clearer pickup instructions, and enhancing communication between drivers and customers may effectively reduce cancellation frequency.
 
-8. Logistic Regression Prediction Analysis
+## 8. Logistic Regression Prediction Analysis
 
 ![Insert Figure 8](screenshots/Cancellation_risk_prediction1.png)
 
@@ -69,6 +69,6 @@ This predictive capability enables platform operators to intervene before cancel
 
 Although Logistic Regression provides good interpretability, future research could evaluate more advanced machine learning algorithms to further improve prediction accuracy.
 
-9. Overall Business Insights
+## 9. Overall Business Insights
 
 The dashboard demonstrates that the cleaned dataset can be transformed into meaningful business intelligence through interactive visualisation and predictive analytics. The analysis highlights several important operational characteristics of the ride-booking platform. Firstly, booking demand varies over time, requiring flexible driver allocation strategies. Secondly, different vehicle categories contribute differently to total revenue, indicating opportunities to optimise pricing and fleet management. Thirdly, while customer satisfaction is generally high based on rating distributions, booking cancellations continue to represent a major operational challenge. Finally, the integration of predictive analytics provides valuable decision support by enabling management to identify potential risks before bookings are completed.
