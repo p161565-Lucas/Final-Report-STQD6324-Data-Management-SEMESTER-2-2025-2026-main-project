@@ -13,7 +13,7 @@ The booking trend covers a single continuous month, 1–31 July 2024, and is rem
 
 ## 3. Revenue by Vehicle Type Analysis
 
-![Insert Figure 3](screenshots/R_revenue_by_vehicle.png)
+![Insert Figure 3](screenshots/R_revenue_by_vehicle_type.png)
 
 Revenue is spread almost evenly across all seven vehicle types (INR 4.88M–5.22M each, under a 7% spread), so no single category dominates total income. The one notable exception is Auto: it earns an average fare (INR 551) statistically identical to every other vehicle type despite covering less than half the distance (10.0 km vs. ~25 km for the rest) — a meaningfully higher fare per kilometre worth investigating before basing any pricing strategy on the assumption that fare scales with distance (the overall correlation between distance and booking value is only 0.002).
 
