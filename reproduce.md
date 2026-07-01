@@ -100,7 +100,7 @@ This method is recommended for instructors, reviewers, and users who simply wish
 
 ---
 
-# Step 1 Download the Repository
+## Step 1 Download the Repository
 
 Download or clone this repository.
 
@@ -124,7 +124,7 @@ WinSCP-6.5.6-Setup.exe
 
 ---
 
-# Step 2 (Optional) Export the Cleaned Dataset from Hive
+## Step 2 (Optional) Export the Cleaned Dataset from Hive
 
 If you already downloaded
 
@@ -182,7 +182,7 @@ on your local computer.
 
 ---
 
-# Step 3 Install Required R Packages
+## Step 3 Install Required R Packages
 
 Open RStudio and install the required packages.
 
@@ -218,7 +218,7 @@ library(odbc)
 
 ---
 
-# Step 4 Open the Dashboard Source Code
+## Step 4 Open the Dashboard Source Code
 
 Open
 
@@ -230,7 +230,7 @@ using RStudio.
 
 ---
 
-# Step 5 Modify the CSV File Path
+## Step 5 Modify the CSV File Path
 
 Locate the following code.
 
@@ -260,7 +260,7 @@ df <- read.csv(
 
 ---
 
-# Step 6 Enable the CSV Loading Section
+## Step 6 Enable the CSV Loading Section
 
 Locate the following section inside the R script.
 
@@ -289,7 +289,7 @@ After uncommenting this block, the dashboard will load data directly from the ex
 
 ---
 
-# Step 7 Disable the Hive Connection
+## Step 7 Disable the Hive Connection
 
 Locate the following section.
 
@@ -321,7 +321,7 @@ Since the dashboard now reads the cleaned CSV file directly, the Hive connection
 
 ---
 
-# Step 8 Configure the Dashboard Images (Optional)
+## Step 8 Configure the Dashboard Images (Optional)
 
 The dashboard uses image resources stored inside the
 
@@ -369,7 +369,7 @@ If this step is skipped, the dashboard will still run correctly, but the custom 
 
 ---
 
-# Step 9 Run the Dashboard
+## Step 9 Run the Dashboard
 
 After completing all previous steps,
 
@@ -454,7 +454,7 @@ Hive Data Cleaning
 
 ---
 
-# Step 1 Prepare the Hadoop Environment
+## Step 1 Prepare the Hadoop Environment
 
 A working Hadoop Sandbox (HDP) environment is required.
 
@@ -469,7 +469,7 @@ Make sure that the Hive service is running normally before continuing.
 
 ---
 
-# Step 2 Upload the Original Dataset
+## Step 2 Upload the Original Dataset
 
 Download
 
@@ -499,7 +499,7 @@ hdfs dfs -ls /ride_final
 
 ---
 
-# Step 3 Create the Hive Database and Tables
+## Step 3 Create the Hive Database and Tables
 
 Open Hive or Beeline.
 
@@ -533,7 +533,7 @@ This table will be used by the dashboard.
 
 ---
 
-# Step 4 Install the Hive ODBC Driver
+## Step 4 Install the Hive ODBC Driver
 
 Install
 
@@ -557,7 +557,7 @@ in Windows.
 
 ---
 
-# Step 5 Configure the Hive ODBC Connection
+## Step 5 Configure the Hive ODBC Connection
 
 Configure the ODBC connection according to the settings shown in
 
@@ -584,7 +584,7 @@ The connection should succeed before proceeding.
 
 ---
 
-# Step 6 Download the Dashboard Source Code
+## Step 6 Download the Dashboard Source Code
 
 Download
 
@@ -596,7 +596,7 @@ Open it using RStudio.
 
 ---
 
-# Step 7 Verify the Hive Connection Code
+## Step 7 Verify the Hive Connection Code
 
 Locate the following section.
 
@@ -643,7 +643,7 @@ modify the connection parameters accordingly.
 
 ---
 
-# Step 8 Disable the CSV Reading Section
+## Step 8 Disable the CSV Reading Section
 
 Locate the following section.
 
@@ -663,7 +663,7 @@ The dashboard should retrieve data directly from Hive.
 
 ---
 
-# Step 9 Configure the Dashboard Images (Optional)
+## Step 9 Configure the Dashboard Images (Optional)
 
 Download the
 
@@ -707,7 +707,7 @@ but the homepage image will not be displayed.
 
 ---
 
-# Step 10 Run the Dashboard
+## Step 10 Run the Dashboard
 
 Open
 
@@ -818,7 +818,7 @@ ODBC Connection
 
 ---
 
-# Step 1 Prepare the Hadoop Environment
+## Step 1 Prepare the Hadoop Environment
 
 Before reproducing Method 3, make sure the following software has been installed and configured correctly.
 
@@ -834,7 +834,7 @@ Hive should be running normally before continuing.
 
 ---
 
-# Step 2 Upload the Dataset
+## Step 2 Upload the Dataset
 
 Download
 
@@ -860,7 +860,7 @@ hdfs dfs -ls /ride_final
 
 ---
 
-# Step 3 Generate the Hive Data Warehouse
+## Step 3 Generate the Hive Data Warehouse
 
 Follow the commands provided in
 
@@ -909,7 +909,7 @@ These ten tables provide the data source for the dashboard.
 
 ---
 
-# Step 4 Install the Hive ODBC Driver
+## Step 4 Install the Hive ODBC Driver
 
 Install
 
@@ -942,7 +942,7 @@ Test the ODBC connection before continuing.
 
 ---
 
-# Step 5 Download the Dashboard Source Code
+## Step 5 Download the Dashboard Source Code
 
 Download
 
@@ -954,7 +954,7 @@ Open it in RStudio.
 
 ---
 
-# Step 6 Verify the Hive Connection
+## Step 6 Verify the Hive Connection
 
 The dashboard connects directly to Hive.
 
@@ -974,7 +974,7 @@ Modify these parameters if your local Hive configuration is different.
 
 ---
 
-# Step 7 Verify the Analytical Tables
+## Step 7 Verify the Analytical Tables
 
 The dashboard should retrieve the following Hive tables.
 
@@ -1022,7 +1022,7 @@ Each dashboard component retrieves only its corresponding Hive table.
 
 ---
 
-# Step 8 Configure the Dashboard Images (Optional)
+## Step 8 Configure the Dashboard Images (Optional)
 
 Download the
 
@@ -1060,7 +1060,7 @@ The dashboard itself will still function correctly.
 
 ---
 
-# Step 9 Run the Dashboard
+## Step 9 Run the Dashboard
 
 Open
 
