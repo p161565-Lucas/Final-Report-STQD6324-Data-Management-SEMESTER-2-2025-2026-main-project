@@ -23,7 +23,6 @@ Customer and driver rating distributions also indicate that most completed rides
 ## 4. Predictive Model Analysis
 The Logistic Regression model was developed to predict the probability of booking cancellation based on operational variables contained in the dataset. Instead of only analysing historical records, the model provides a practical decision-support tool by identifying bookings that are more likely to be cancelled before the trip is completed.
 Although the model does not eliminate cancellations, it enables platform operators to take preventive actions such as assigning alternative drivers, improving customer communication, or providing promotional incentives for high-risk bookings. This demonstrates how predictive analytics can support more proactive operational management rather than relying solely on historical reporting.
-(Insert Figure 6: Logistic Regression Prediction Result)
 ![Insert Figure 6](screenshots/risk.png)
 
 
