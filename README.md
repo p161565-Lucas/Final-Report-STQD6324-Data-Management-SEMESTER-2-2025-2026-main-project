@@ -661,7 +661,7 @@ runApp()
 
 ## HDFS Upload
 
-![Task 13](bookings_cleaned_on_hdfs.png)
+![Task 13](screenshots/bookings_cleaned_on_hdfs.png)
 
 ---
 
