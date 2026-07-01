@@ -178,19 +178,17 @@ The cleaned dataset is further transformed into multiple analytical Hive tables,
 
 # Dataset
 
-The ride-booking dataset used in this project is based on publicly available data from the City of Chicago Data Portal.
-
-Dataset Source
+The ride-booking dataset used in this project is based on publicly available data from Kaggle.
 
 ### Dataset Source
 
-The dataset is obtained from the **Chicago Taxi Trips Dataset**, available through the City of Chicago Data Portal.
+The dataset is obtained from the **Uber Data Analytics Dashboard**, available through the City of Chicago Data Portal.
 
-https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew
+https://www.kaggle.com/datasets/yashdevladdha/uber-ride-analytics-dashboard
 
-This dataset contains detailed records of taxi trips in Chicago, including trip duration, trip distance, fare amount, payment type, pickup and drop-off locations, and timestamps. It is widely used for transportation analytics, demand forecasting, and urban mobility research.
+This dataset contains detailed ride-booking records from a ride-hailing service operating in Bangalore, India, including booking status, vehicle type, pickup and drop-off locations, cancellation reasons, incomplete-ride reasons, ride distance, booking value, payment method, and driver/customer ratings, covering the month of July 2024 (103,024 records). It is widely used for ride-hailing analytics, dashboarding, and business-intelligence practice.
 
-The dataset is used under the City of Chicago open data policy and is intended for academic and research purposes.
+The dataset is publicly available on Kaggle and is used here for academic purposes.
 
 The ride-booking dataset contains information such as:
 
@@ -546,6 +544,8 @@ Predictors include:
 
 Users can input custom values and obtain cancellation risk estimates.
 
+> **See the "Data Results & Business Findings" section below — re-analysis shows Ride Distance leaks the outcome (it is 0 for every non-completed booking) and should be removed
+
 ---
 
 ## Data Explorer
@@ -768,7 +768,8 @@ Ride-Booking-Analytics/
 │   └── Hive_Data_Cleaning_Command.pdf
 │
 ├── reports/
-│   └── Report.pdf
+│   ├── Report.pdf
+│   └── Ride_Booking_Data_Analysis_Report.docx
 │
 ├── Data_management_final_connect_hive_one_table_stable.R
 │
@@ -812,6 +813,8 @@ Although the current system successfully demonstrates three different data manag
 * Extend the predictive analytics module with additional machine learning models such as Random Forest and XGBoost.
 * Improve ODBC stability when accessing multiple analytical Hive tables simultaneously.
 * Develop role-based dashboards for managers, analysts, and administrators.
+* Correct the `booking_date` parsing format in both R scripts from `%m/%d/%Y` to `%d/%m/%Y` (see "Data Results & Business Findings" below).
+* Remove `ride_distance` from the cancellation-risk model and engineer genuinely pre-trip features (e.g. historical customer/location cancellation rates) to build a model with real predictive value.
 
 ---
 
@@ -833,6 +836,33 @@ This progression demonstrates the evolution from basic data export, to direct da
 Among the three implementations, the single-table ODBC approach is recommended for practical demonstration because it provides a more stable execution environment. Nevertheless, the multiple analytical-table architecture more closely reflects real-world enterprise data warehouse design, where pre-computed analytical tables improve query efficiency, reduce unnecessary data transfer, and simplify downstream business intelligence applications.
 
 ---
+
+
+# Data Results & Business Findings
+
+The sections above describe how the dashboard was built. This section summarises what the data itself shows, based on a direct re-analysis of `bookings_clean` (103,024 records). A full write-up with charts is provided separately in **`Ride_Booking_Data_Analysis_Report.docx`**.
+
+## Data Verification Notes
+
+Two issues were found during this re-analysis and should be corrected going forward:
+
+* **Dataset source**: the pickup/drop-off locations (Yeshwanthpur, Malleshwaram, BTM Layout, JP Nagar, Sarjapur Road, etc.) and vehicle types (Auto, eBike, Prime Sedan/Plus/SUV, Mini, Bike) confirm this is a **Bangalore, India ride-hailing dataset** — specifically the "Uber Data Analytics Dashboard" dataset on Kaggle (see the Dataset section above) — not the City of Chicago Taxi Trips dataset originally cited.
+* **Date parsing bug**: both R scripts parse `booking_date` using the format `%m/%d/%Y` (month-first). The raw values are actually day-first (`%d/%m/%Y`); with the wrong format, 61% of rows fail to parse (`NA`) and the rest are silently misread. Re-parsing correctly shows the entire dataset covers exactly **one month — 1–31 July 2024** — not a full year as the mis-parsed dates suggested. **Action item: change `format = "%m/%d/%Y %H:%M"` to `format = "%d/%m/%Y %H:%M"` in both R scripts.**
+
+## Key Findings
+
+* **Booking volume** is stable across the month (3,072–3,432 bookings/day, mean 3,323, ~2% coefficient of variation) with no strong weekly seasonality — consistent with a simulated/teaching dataset.
+* **62.1% of bookings complete successfully.** The remaining 37.9% splits into driver cancellations (17.9%), customer cancellations (10.2%), and "driver not found" (9.8%) — **driver/supply-side issues (27.7% combined) are the dominant cancellation cause, not customer indecision.**
+* **Cancellation rate is flat across vehicle type** (36.96%–38.61%) and day of week (37.6%–38.5%), so fleet-mix or day-specific interventions are unlikely to help; fixes should target dispatch and driver-availability instead.
+* **Revenue is evenly spread across vehicle types** (INR 4.88M–5.22M each, total INR 35.08M from 63,967 completed rides), but **Auto rides earn a nearly identical average fare (INR 551) over less than half the average distance** of every other vehicle type (10.0 km vs. ~25 km) — a materially higher fare per kilometre worth investigating. Distance and booking value are essentially uncorrelated overall (r = 0.002).
+* **Payment**: Cash leads at 54.8%, UPI is a strong second at 40.5%; credit + debit cards combined are under 5%. UPI — not cards — is the realistic channel to grow digital payment adoption further.
+* **Ratings** average 4.0/5 for both drivers and customers (only 2.5–2.6% rated ≤3), but the fields only take three discrete values (3, 4, 5), consistent with a simulated rating generator rather than organic review data.
+* **The cancellation-risk model has a data-leakage problem.** `ride_distance` is recorded as exactly 0 for every non-completed booking, so a model that includes it "predicts" cancellation with 100% accuracy / AUC 1.00 simply by reading the outcome after the fact. Removing `ride_distance` and keeping only genuinely pre-trip information (`booking_value`, `vehicle_type`) drops the model to **AUC 0.51 — no better than random guessing.** A model with real predictive value would require new features not yet in the Hive schema, such as location-level or customer-level historical cancellation rates, or time-of-day/driver-supply signals.
+
+See `Ride_Booking_Data_Analysis_Report.docx` for the full analysis, all supporting charts, and detailed recommendations.
+
+---
+
 
 ## Author
 
